@@ -9,26 +9,26 @@ https://learningnetwork.cisco.com/community/certifications/ccna/icnd2/exam-topic
 * 1.1.a Access ports (data and voice)
 * 1.1.b Default VLAN
 
-1.2 Configure, verify, and troubleshoot interswitch connectivity
+[1.2 Configure, verify, and troubleshoot interswitch connectivity](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies/1.2%20Configure%2C%20verify%2C%20and%20troubleshoot%20interswitch%20connectivity.md)
 * 1.2.a Add and remove VLANs on a trunk
 * 1.2.b DTP and VTP (v1&v2)
 
-1.3 Configure, verify, and troubleshoot STP protocols
+[1.3 Configure, verify, and troubleshoot STP protocols](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies/1.3%20Configure%2C%20verify%2C%20and%20troubleshoot%20STP%20protocols.md)
 * 1.3.a STP mode (PVST+ and RPVST+)
 * 1.3.b STP root bridge selection
 
-1.4 Configure, verify, and troubleshoot STP-related optional features
+[1.4 Configure, verify, and troubleshoot STP-related optional features](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies/1.4%20Configure%2C%20verify%2C%20and%20troubleshoot%20STP-related%20optional%20features.md)
 * 1.4.a PortFast
 * 1.4.b BPDU guard
 
-1.5 Configure, verify, and troubleshoot (Layer 2/Layer 3) EtherChannel
+[1.5 Configure, verify, and troubleshoot (Layer 2/Layer 3) EtherChannel](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies/1.5%20Configure,%20verify,%20and%20troubleshoot,%20Layer%202%20&%20Layer%203%20EtherChannel.md)
 * 1.5.a Static
 * 1.5.b PAGP
 * 1.5.c LACP
 
-1.6 Describe the benefits of switch stacking and chassis aggregation
+[1.6 Describe the benefits of switch stacking and chassis aggregation](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies/1.6%20Describe%20the%20benefits%20of%20switch%20stacking%20and%20chassis%20aggregation.md)
 
-1.7 Describe common access layer threat mitigation techniques
+[1.7 Describe common access layer threat mitigation techniques](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies/1.7%20Describe%20common%20access%20layer%20threat%20mitigation%20techniques.md)
 * 1.7.a 802.1x
 * 1.7.b DHCP snooping
 * 1.7.c Nondefault native VLAN
