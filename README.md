@@ -4,7 +4,7 @@
 
 https://learningnetwork.cisco.com/community/certifications/ccna/icnd2/exam-topics
 
-## 1.0 LAN Switching Technologies - 26%
+## [1.0 LAN Switching Technologies - 26%](https://github.com/amroczeK/Networking/blob/master/1.0%20LAN%20Switching%20Technologies.md)
 1.1 Configure, verify, and troubleshoot VLANs (normal/extended range) spanning multiple switches
 * 1.1.a Access ports (data and voice)
 * 1.1.b Default VLAN
