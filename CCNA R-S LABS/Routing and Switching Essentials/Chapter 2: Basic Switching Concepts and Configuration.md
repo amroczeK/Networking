@@ -61,6 +61,81 @@ S1(config-if)# switchport mode access
 S1(config-if)# switchport access vlan 99
 ```
 
+#### Configure Duplex and Speed
+```
+S1(config)# interface f0/1
+S1(config-if)# duplex full
+S1(config-if)# speed 100
+```
+
+#### Configure SSH for Remote Management
+```
+S1(config)# ip domain-name cisco.com
+S1(config)# crypto key generate rsa 1024
+S1(config)# username admin secret password123
+S1(config-line)# line vty 0 15
+S1(config-line)# transport input ssh
+S1(config-line)# login local
+S1(config-line)# exit
+S1(config)# ip ssh version 2
+
+!!! Verify SSH
+S1# show ip ssh
+S1# show ssh
+```
+
+#### Configure DHCP Snooping to setup trusted port connections to DHCP server to prevent DHCP spoofing/evil DHCP servers
+```
+S1(config)# ip dhcp snooping                  !!! Enable DHCP snooping
+S1(config)# ip dhcp snooping vlan 10,20       !!! Enables DHCP snooping for specific VLANs
+S1(config)# interface f0/1
+S1(config-if)# ip dhcp snooping trust         !!! Assign f0/1 as trusted port connecting to DHCP Server
+S1(config)# exit
+S1(config)# interface f0/2
+S1(config-if)# ip dhcp snooping limit rate 5  !!! Limit rate an atacker can send bogus DHCP requests through untrusted ports to the DHCP Server
+```
+
+### Port Security
+All switch ports (interfaces) should be secured before the switch is deployed for production use. One way to secure ports is by implementing a feature called port security. Port security limits the number of valid MAC addresses allowed on a port. The MAC addresses of legitimate devices are allowed access, while other MAC addresses are denied.
+
+#### Secure MAC Address Types
+There are a number of ways to configure port security. The type of secure address is based on the configuration and includes:
+
+Static secure MAC addresses:
+* MAC addresses that are manually configured on a port by using the switchport port-security mac-address mac-address interface configuration mode command. MAC addresses configured in this way are stored in the address table and are added to the running configuration on the switch.
+Dynamic secure MAC addresses: 
+* MAC addresses that are dynamically learned and stored only in the address table. MAC addresses configured in this way are removed when the switch restarts.
+Sticky secure MAC addresses:
+* MAC addresses that can be dynamically learned or manually configured, then stored in the address table and added to the running configuration.
+
+Security Violation Modes:
+* Protect: No traffic is forwarded, no syslog message sent, no error message displayed, no increase of violation counter, no port shutdown.
+* Restrict: No traffic is forwarded, a syslog message is sent, no error message displayed, increase of violation counter, no port shutdown.
+* Shutdown: No traffic is forwarded, no syslog message sent, no error message displayed, increase of violation counter, port is shutdown.
+
+#### Configure Sticky Port Security
+```
+S1(config)# interface f0/19
+S1(config-if)# switchport mode access
+S1(config-if)# switchport port-security                       !!! Enables port security on interface
+S1(config-if)# switchport port-security maximum 50            !!! Set maximum no. secure addresses allowed on port
+S1(config-if)# switchport port-security mac-address sticky    !!! Enable sticky learning e.g. static or dynamic
+S1(config-if)# switchport port-security violation shutdown    !!! mode: { protect | restrict | shutdown }
+
+!!! Verify Port Security
+S1# show port-security interface f0/19
+S1# show run | begin f0/19                !!! Verify sticky MAC running-config
+S1# show port-security addresss           !!! Verify Secure MAC Addresses
+```
+
+#### Configure NTP on Routers
+```
+R1 (10.1.1.1) = NTP Server ----- S1 ----- R2 (10.1.1.12) = NTP Client
+
+R1(config)# ntp master 1
+R2(config)# ntp server 10.1.1.1
+```
+
 #### Directory of flash:
 ```
 S1# dir flash:
