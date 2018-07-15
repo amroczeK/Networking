@@ -57,6 +57,7 @@ S1(config-if)# no shutdown
 !!! Assign all user ports to VLAN 99 so VLAN 1 is unsued and changes state to down
 
 S1(config)# interface range f0/1 - 24, g0/1 -2
+S1(config-if)# switchport mode access
 S1(config-if)# switchport access vlan 99
 ```
 
